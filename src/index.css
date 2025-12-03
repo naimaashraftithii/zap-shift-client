@@ -1,0 +1,45 @@
+/* Google Fonts FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lustria&family=Manrope:wght@200..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Tailwind + DaisyUI */
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom Theme */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  --color-primary: #CAEB66;
+  --color-secondary: #1E1E1E;
+  --color-h1text: #03373D;
+  --color-ptext: #606060;
+  --color-footer: #0B0B0B;
+}
+
+/* Custom text utility for paragraph color */
+@utility text-ptext {
+  color: var(--color-ptext);
+}
+
+/* Your custom CSS */
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* For brand carasole */
+/* Infinite horizontal scroll for client logos */
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-logo-scroll {
+  animation: logo-scroll 25s linear infinite;
+}
