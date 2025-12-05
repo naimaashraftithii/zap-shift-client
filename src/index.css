@@ -1,36 +1,66 @@
-/* Google Fonts FIRST */
+/* ---------------------------------------------------
+   GOOGLE FONTS
+----------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lustria&family=Manrope:wght@200..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Tailwind + DaisyUI */
+/* ---------------------------------------------------
+   TAILWIND + DAISYUI
+----------------------------------------------------- */
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Custom Theme */
+/* ---------------------------------------------------
+   CUSTOM THEME (LIGHT MODE)
+----------------------------------------------------- */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
 
+  /* BRAND COLORS */
   --color-primary: #CAEB66;
   --color-secondary: #1E1E1E;
-  --color-h1text: #03373D;
-  --color-ptext: #606060;
+
+  /* TYPOGRAPHY COLORS */
+  --color-h1text: #03373D;   /* Titles / Headings */
+  --color-subtext: #303030;  /* Subtitles / Descriptions */
+  --color-ptext: #606060;    /* Normal paragraphs */
+
+  /* FOOTER */
   --color-footer: #0B0B0B;
 }
 
-/* Custom text utility for paragraph color */
-@utility text-ptext {
-  color: var(--color-ptext);
-}
-
-/* Your custom CSS */
+/* ---------------------------------------------------
+   GLOBAL BODY STYLING
+----------------------------------------------------- */
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: #EAECED; /* Default site background */
 }
 
-/* For brand carasole */
-/* Infinite horizontal scroll for client logos */
+/* ---------------------------------------------------
+   CUSTOM UTILITIES
+----------------------------------------------------- */
+
+/* Paragraph color */
+@utility text-ptext {
+  color: var(--color-ptext);
+}
+
+/* Subtitle / description color */
+@utility text-subtext {
+  color: var(--color-subtext);
+}
+
+/* Heading color (H1, H2, sections, titles) */
+@utility text-h1 {
+  color: var(--color-h1text);
+}
+
+/* ---------------------------------------------------
+   LOGO CAROUSEL ANIMATION
+----------------------------------------------------- */
 @keyframes logo-scroll {
   0% {
     transform: translateX(0);
@@ -43,3 +73,5 @@ body {
 .animate-logo-scroll {
   animation: logo-scroll 25s linear infinite;
 }
+
+/* text-h1 ,  text-subtext , text-ptext */
