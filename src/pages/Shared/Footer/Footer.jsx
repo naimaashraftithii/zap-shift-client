@@ -1,12 +1,21 @@
 import React from 'react';
-import Logo from '../../../components/Logo/Logo';
+import { Link } from "react-router-dom";   // ✅ import Link from react-router-dom
+import logo from "../../../assets/logo.png";
 
 const Footer = () => {
     return (
         <div>
-          <footer className="footer bg-[#0B0B0B] footer-horizontal footer-center text-primary-content p-10">
+          <footer className="footer bg-[#0B0B0B] footer-horizontal footer-center text-[#FFFFFF] p-10">
   <aside>
-   <Logo/>
+   {/* <for logo */}
+    <Link to="/" className="inline-block">
+      <div className="flex items-end">
+        <img src={logo} alt="ZapShift logo" />
+        <h3 className="text-3xl font-bold text-[#FFFFFF] -ms-2.5">ZapShift</h3>
+      </div>
+    </Link>
+    
+    
     <p className="font-bold text-ptext">
       ACME Industries Ltd.
       <br />

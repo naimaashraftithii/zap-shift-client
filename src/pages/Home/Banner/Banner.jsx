@@ -1,49 +1,71 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import bannerimg1 from "../../../assets/banner/banner1.png";
-import bannerimg2 from "../../../assets/banner/banner2.png";
-import bannerimg3 from "../../../assets/banner/banner3.png";
 import { Carousel } from "react-responsive-carousel";
 import { FaArrowRight } from "react-icons/fa";
 
-// 🌟 REUSABLE SLIDE COMPONENT
-const BannerSlide = ({ img, text, position = "center" }) => {
-  const positionClasses =
-    position === "center"
-      ? "top-1/2 -translate-y-1/2 left-3 sm:left-6 md:left-16 lg:left-24"
-      : "bottom-2 left-2 sm:bottom-3 sm:left-4 md:left-6";
+// Banner Images
+import bannerimg3 from "../../../assets/banner/banner1.png";
+import bannerimg2 from "../../../assets/banner/banner2.png";
+import bannerimg1 from "../../../assets/banner/banner3.png";
 
+// Slide Component
+const BannerSlide = ({ img }) => {
   return (
-    <div className="relative">
-      {/* Responsive Banner Image */}
+    <div className="relative w-full overflow-hidden rounded-[32px] bg-white">
+
+      {/* Banner Image */}
       <img
         src={img}
-        className="w-full h-[260px] sm:h-[360px] md:h-[460px] lg:h-[550px] object-cover"
         alt="Banner"
+        className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
       />
 
+      {/* SMALL TRANSPARENT OVERLAY BOX */}
       <div
-        className={`absolute ${positionClasses} 
-        w-[88%] sm:w-[70%] md:w-[50%] lg:w-[45%] 
-        space-y-4 sm:space-y-5 text-left`}
+        className="
+          absolute bottom-4 left-6        /* ↓ moved whole overlay lower */
+          px-4 sm:px-5 md:px-6 
+          py-3 sm:py-4 
+          rounded-xl
+          max-w-[70%] sm:max-w-[55%] md:max-w-[45%]
+        "
       >
-        {/* TEXT USING --color-ptext */}
-        <p className="text-ptext text-sm sm:text-base md:text-lg leading-relaxed font-medium">
-          {text}
+        {/* Description */}
+        <p
+          className="
+            text-[#03373D] 
+            text-left
+            mt-7                /* ↓ moved text lower */
+            text-xs sm:text-sm md:text-base 
+            leading-relaxed
+          "
+        >
+          Enjoy fast, reliable parcel delivery zero hassle —
         </p>
 
-        {/* BUTTONS */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+        {/* Buttons */}
+        <div className="flex flex-wrap items-center gap-3 mt-5">
           <button
-            className="bg-primary text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold 
-                       flex items-center gap-2 shadow-md hover:bg-[#b4d85c] transition text-sm sm:text-base"
+            className="
+              bg-[#CAEB66] text-[#03373D] 
+              px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 
+              text-xs sm:text-sm md:text-base
+              rounded-full font-semibold 
+              flex items-center gap-2 shadow-md 
+              hover:bg-[#b4d85c] transition
+            "
           >
-            Track Your Parcel <FaArrowRight />
+            Track Your Parcel <FaArrowRight className="text-xs sm:text-sm" />
           </button>
 
           <button
-            className="border border-gray-400 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold 
-                       hover:bg-gray-100 transition text-sm sm:text-base"
+            className="
+              border border-[#03373D] text-[#03373D]
+              px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 
+              text-xs sm:text-sm md:text-base
+              rounded-full font-semibold 
+              hover:bg-[#03373D]/10 transition
+            "
           >
             Be A Rider
           </button>
@@ -53,28 +75,23 @@ const BannerSlide = ({ img, text, position = "center" }) => {
   );
 };
 
-// 🌟 MAIN BANNER COMPONENT
+// Main Banner Component
 const Banner = () => {
   return (
     <div className="relative w-full">
-      <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
-        <BannerSlide
-          img={bannerimg1}
-          text="From personal packages to business shipments — we deliver on time, every time."
-          position="center"
-        />
-
-        <BannerSlide
-          img={bannerimg2}
-          text="Reliable delivery solutions for your business and personal needs."
-          position="bottom"
-        />
-
-        <BannerSlide
-          img={bannerimg3}
-          text="Your parcels are handled with care from pickup to delivery."
-          position="bottom"
-        />
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        interval={4000}
+        transitionTime={700}
+        swipeable
+        emulateTouch
+      >
+        <BannerSlide img={bannerimg1} />
+        <BannerSlide img={bannerimg2} />
+        <BannerSlide img={bannerimg3} />
       </Carousel>
     </div>
   );
