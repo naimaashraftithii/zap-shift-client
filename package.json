@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.12",
     "axios": "^1.13.2",
     "firebase": "^12.6.0",
     "leaflet": "^1.9.4",
@@ -23,6 +24,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router": "^7.9.6",
     "react-router-dom": "^7.10.1",
+    "sweetalert2": "^11.26.4",
     "swiper": "^12.0.3"
   },
   "devDependencies": {
